@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 
+
 # In-memory storage for books
 books = {
     1: {"title": "1984", "author": "George Orwell", "year": 1949},
@@ -64,4 +65,4 @@ def delete_book(book_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)

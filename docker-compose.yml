@@ -1,0 +1,32 @@
+services:
+  myapp:
+    image: myapp:1
+    ports:
+      - "8080:5000"
+    restart: always
+  db:
+    image: postgres:17
+    restart: always
+    secrets:
+      - pg_user
+      - pg_password
+      - pg_db
+    environment:
+      POSTGRES_USER_FILE: /run/secrets/pg_user
+      POSTGRES_PASSWORD_FILE: /run/secrets/pg_password
+      POSTGRES_DB_FILE: /run/secrets/pg_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
+
+secrets:
+  pg_user:
+    file: ./secrets/pg_user
+  pg_password:
+    file: ./secrets/pg_password
+  pg_db:
+    file: ./secrets/pg_db
