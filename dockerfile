@@ -1,17 +1,17 @@
-# Utiliser la dernière version stable de Python avec l'image slim (optimisée)
+# Using the latest stable version of Python with the slim image (optimized)
 FROM python:slim
 
-# Définir un dossier de travail non root (bonnes pratiques de sécurité)
+# Defining a non root working directory (good security practices)
 WORKDIR /app
 
-# Copier uniquement les fichiers nécessaires
+# Copy the requirements file
 COPY requirements.txt .
 
-# Installer les dépendances en limitant les caches
+# install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copier le reste de l’application
+# copy the application code
 COPY . .
 
-# Lancer l’application
+# start the application
 CMD ["python", "app/main.py"]
