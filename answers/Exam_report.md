@@ -22,13 +22,10 @@ Completing this exam was not easy as I missed some lessons, but the time accorde
 - **Challenge**: Ensuring Docker images are pushed only on the main branch while maintaining build validation on all branches
 - **Solution**: Used conditional logic (`if: github.ref == 'refs/heads/main'`) to control push behavior and implemented proper workflow triggers
 
-**3. Docker Security Best Practices**
-- **Challenge**: Managing sensitive information like database passwords securely
-- **Solution**: Implemented Docker secrets and GitHub repository secrets for secure credential management
+**3. Ports issue**
+- **Challenge**: opening the right port. My application wasn't working correctly due to a port issue, the 8080 port was used by an other service.
+- **Solution**: Used the 8081 port after searching the root cause of the issue 
 
-**4. Multi-Architecture Support**
-- **Challenge**: Building Docker images that work across different architectures
-- **Solution**: Configured Docker Buildx with platform-specific builds and GitHub Actions caching
 
 ### Learning Outcomes
 - Gained deeper understanding of containerization best practices
